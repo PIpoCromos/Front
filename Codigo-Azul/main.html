@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Azul</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-home"></i>
+            <span>Menú Principal</span>
+        </a>
+        <a href="personal.html" class="sidebar-item">
+            <i class="fas fa-user-nurse"></i>
+            <span>Personal</span>
+        </a>
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-door-open"></i>
+            <span>Habitaciones</span>
+        </a>
+        <a href="pacientes.html" class="sidebar-item">
+            <i class="fas fa-user"></i>
+            <span>Pacientes</span>
+        </a>
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+        </a>
+                <a href="#" class="sidebar-item alarm-btn">
+            <i class="fas fa-bell"></i>
+            <span>Alarma</span>
+        </a>
+    </div>
+    <div class="main-content">
+        <div class="stats-container">
+            <div class="stat-card emergency">
+                <h3>URGENCIAS</h3>
+                <p>4</p>
+            </div>
+            <div class="stat-card discharges">
+                <h3>ALTAS</h3>
+                <p>42</p>
+            </div>
+            <div class="stat-card hospitalized">
+                <h3>INTERNADOS</h3>
+                <p>18</p>
+            </div>
+            <div class="stat-card deceased">
+                <h3>FALLECIDOS</h3>
+                <p>0</p>
+            </div>
+        </div>
+        <div class="charts-container">
+            <div class="chart-card">
+                <h3>Distribución de Pacientes</h3>
+                <canvas id="pieChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Ingresos por Día</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+        <div class="history-container">
+            <h3>Historial de Pacientes</h3>
+            <ul class="patient-list">
+                <li class="patient-item">
+                    <span class="patient-name">Juan Pérez</span>
+                    <span class="patient-time">Hace 15 min</span>
+                </li>
+                <li class="patient-item">
+                    <span class="patient-name">María García</span>
+                    <span class="patient-time">Hace 30 min</span>
+                </li>
+                <li class="patient-item">
+                    <span class="patient-name">Carlos López</span>
+                    <span class="patient-time">Hace 45 min</span>
+                </li>
+                <li class="patient-item">
+                    <span class="patient-name">Ana Rodríguez</span>
+                    <span class="patient-time">Hace 1 h</span>
+                </li>
+                <li class="patient-item">
+                    <span class="patient-name">Jorge Martínez</span>
+                    <span class="patient-time">Hace 2 h</span>
+                </li>
+                <li class="patient-item">
+                    <span class="patient-name">Laura Sánchez</span>
+                    <span class="patient-time">Hace 3 h</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    
+</body>
+
+</html>
