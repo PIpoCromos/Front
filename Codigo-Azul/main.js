@@ -4,7 +4,7 @@ const pieChart = new Chart(pieCtx, {
     data: {
         labels: ['Urgencias', 'Cirugía', 'Pediatría', 'Maternidad', 'Terapia Intensiva'],
         datasets: [{
-            data: [7, 15, 18, 8, 12],
+            data: [9, 12, 18, 3, 1],
             backgroundColor: [
                 '#e74c3c',
                 '#3498db',

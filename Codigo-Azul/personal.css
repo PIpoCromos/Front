@@ -26,6 +26,15 @@ body {
     width: 200px;
 }
 
+.alarm-btn {
+    background-color: #e74c3c;
+    border-radius: 5px;
+}
+
+.alarm-btn:hover {
+    background-color: #c0392b;
+}
+
 .sidebar-item {
     display: flex;
     align-items: center;
