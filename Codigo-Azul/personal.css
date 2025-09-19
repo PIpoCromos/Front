@@ -89,7 +89,7 @@ body {
     padding: 100px;
     
 }
-*/
+
 .define {
     border-radius: 50%;
     width: 20px;
@@ -105,4 +105,56 @@ body {
 .didos {
     
     justify-content: end;
+}
+    */
+
+.define {
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start;
+    width: 100%;
+    padding: 30px;
+}
+
+
+.diuno, .didos {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 45%; 
+}
+
+.diuno h2, .didos h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f5f7fa;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+}
+
+
+.icono {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.item p {
+    flex: 1;
+    margin: 0 10px;
 }
