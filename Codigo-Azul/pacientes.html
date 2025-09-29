@@ -22,7 +22,7 @@
             <i class="fas fa-door-open"></i>
             <span>Habitaciones</span>
         </a>
-        <a href="pacientes.html" class="sidebar-item">
+        <a href="#" class="sidebar-item" id="pacientesBtn">
             <i class="fas fa-user"></i>
             <span>Pacientes</span>
         </a>
@@ -30,10 +30,58 @@
             <i class="fas fa-cog"></i>
             <span>Configuración</span>
         </a>
-                <a href="#" class="sidebar-item alarm-btn">
+        <a href="#" class="sidebar-item alarm-btn">
             <i class="fas fa-bell"></i>
             <span>Alarma</span>
         </a>
+    </div>
+
+    <!-- 🔍 Modal de búsqueda -->
+    <div class="modal" id="pacientesModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Buscar Paciente</h2>
+            <input type="text" id="searchInput" placeholder="Escribe un nombre...">
+            <ul id="resultsList"></ul>
+        </div>
+    </div>
+
+    <!-- ⚙️ Modal de opciones del paciente -->
+    <div class="modal" id="patientOptionsModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeOptions">&times;</span>
+            <h2 id="patientNameTitle"></h2>
+            <button class="action-btn" id="editBtn">✏️ Editar datos</button>
+            <button class="action-btn" id="stateBtn">🔄 Cambiar estado</button>
+            <button class="action-btn delete" id="deleteBtn">🗑️ Eliminar paciente</button>
+        </div>
+    </div>
+
+    <!-- ✏️ Modal de edición -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeEdit">&times;</span>
+            <h2>Editar Paciente</h2>
+            <input type="text" id="editNombre" placeholder="Nombre">
+            <input type="text" id="editApellido" placeholder="Apellido">
+            <input type="text" id="editDNI" placeholder="DNI">
+            <button class="action-btn" id="saveEdit">💾 Guardar cambios</button>
+        </div>
+    </div>
+
+    <!-- 🔄 Modal de cambio de estado -->
+    <div class="modal" id="stateModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeState">&times;</span>
+            <h2>Cambiar Estado</h2>
+            <select id="estadoSelect">
+                <option>Urgencias</option>
+                <option>Altas</option>
+                <option>Internados</option>
+                <option>Fallecidos</option>
+            </select>
+            <button class="action-btn" id="saveState">✅ Guardar estado</button>
+        </div>
     </div>
 
     <script src="pacientes.js"></script>
