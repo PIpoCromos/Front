@@ -67,46 +67,6 @@ body {
     display: inline-block;
 }
 
-/*
-.icono {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    background-color: lightblue;
-    display: inline-block
-}
-.icono p {
-    margin: auto;
-    padding: auto;
-    display: inline-block;
-    
-}
-body {
-    font-family: Arial, sans-serif;
-    background: #f8f0f8;
-    display: flex;
-    justify-content: center;
-    padding: 100px;
-    
-}
-
-.define {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    background-color: lightblue;
-     
-}
-.icono p {
-    margin: auto;
-    padding: auto;
-    display: inline-block;
-}
-.didos {
-    
-    justify-content: end;
-}
-    */
 
 .define {
     display: flex;
