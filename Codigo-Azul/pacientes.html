@@ -36,53 +36,73 @@
         </a>
     </div>
 
-    <!-- 🔍 Modal de búsqueda -->
-    <div class="modal" id="pacientesModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeModal">&times;</span>
-            <h2>Buscar Paciente</h2>
-            <input type="text" id="searchInput" placeholder="Escribe un nombre...">
-            <ul id="resultsList"></ul>
-        </div>
-    </div>
+    <!-- Modal Buscar Paciente -->
+<div class="modal" id="pacientesModal">
+<div class="modal-content">
+<span class="close" id="closeModal">&times;</span>
+<h2>Buscar Paciente</h2>
+<input type="text" id="searchInput" placeholder="Escribe el nombre del paciente...">
+<button id="addPatientBtn" class="add-btn">+ Agregar paciente</button>
+<ul id="resultsList"></ul>
+</div>
+</div>
 
-    <!-- ⚙️ Modal de opciones del paciente -->
-    <div class="modal" id="patientOptionsModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeOptions">&times;</span>
-            <h2 id="patientNameTitle"></h2>
-            <button class="action-btn" id="editBtn">✏️ Editar datos</button>
-            <button class="action-btn" id="stateBtn">🔄 Cambiar estado</button>
-            <button class="action-btn delete" id="deleteBtn">🗑️ Eliminar paciente</button>
-        </div>
-    </div>
+<!-- Modal Agregar Paciente -->
+<div class="modal" id="addPatientModal">
+<div class="modal-content">
+<span class="close" id="closeAdd">&times;</span>
+<h2>Agregar Paciente</h2>
+<input type="text" id="addNombre" placeholder="Nombre">
+<input type="text" id="addApellido" placeholder="Apellido">
+<input type="text" id="addDNI" placeholder="DNI">
+<label for="addEstado">Estado:</label>
+<select id="addEstado">
+<option value="Internados">Internados</option>
+<option value="Urgencias">Urgencias</option>
+<option value="Altas">Altas</option>
+<option value="Fallecidos">Fallecidos</option>
+</select>
+<button id="savePatient" class="save-btn">Guardar Paciente</button>
+</div>
+</div>
 
-    <!-- ✏️ Modal de edición -->
-    <div class="modal" id="editModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeEdit">&times;</span>
-            <h2>Editar Paciente</h2>
-            <input type="text" id="editNombre" placeholder="Nombre">
-            <input type="text" id="editApellido" placeholder="Apellido">
-            <input type="text" id="editDNI" placeholder="DNI">
-            <button class="action-btn" id="saveEdit">💾 Guardar cambios</button>
-        </div>
-    </div>
+<!-- Modal Opciones del Paciente -->
+<div class="modal" id="patientOptionsModal">
+<div class="modal-content">
+<span class="close" id="closeOptions">&times;</span>
+<h2 id="patientNameTitle"></h2>
+<button id="editBtn">✏️ Editar datos</button>
+<button id="stateBtn">🔄 Cambiar estado</button>
+<button id="deleteBtn" class="delete-btn">🗑️ Eliminar paciente</button>
+</div>
+</div>
 
-    <!-- 🔄 Modal de cambio de estado -->
-    <div class="modal" id="stateModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeState">&times;</span>
-            <h2>Cambiar Estado</h2>
-            <select id="estadoSelect">
-                <option>Urgencias</option>
-                <option>Altas</option>
-                <option>Internados</option>
-                <option>Fallecidos</option>
-            </select>
-            <button class="action-btn" id="saveState">✅ Guardar estado</button>
-        </div>
-    </div>
+<!-- Modal Editar Paciente -->
+<div class="modal" id="editModal">
+<div class="modal-content">
+<span class="close" id="closeEdit">&times;</span>
+<h2>Editar Paciente</h2>
+<input type="text" id="editNombre" placeholder="Nombre">
+<input type="text" id="editApellido" placeholder="Apellido">
+<input type="text" id="editDNI" placeholder="DNI">
+<button id="saveEdit" class="save-btn">Guardar Cambios</button>
+</div>
+</div>
+
+<!-- Modal Cambiar Estado -->
+<div class="modal" id="stateModal">
+<div class="modal-content">
+<span class="close" id="closeState">&times;</span>
+<h2>Cambiar Estado</h2>
+<select id="estadoSelect">
+<option value="Internados">Internados</option>
+<option value="Urgencias">Urgencias</option>
+<option value="Altas">Altas</option>
+<option value="Fallecidos">Fallecidos</option>
+</select>
+<button id="saveState" class="save-btn">Guardar Estado</button>
+</div>
+</div>
 
     <script src="pacientes.js"></script>
 </body>
