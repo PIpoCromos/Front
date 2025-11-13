@@ -7,6 +7,10 @@ body {
     background-color: #f4f4f4;
     margin: 0;
 }
+form {
+    display: flex;
+    flex-direction: row;
+}
 .div1 {
     background-color: #fff;
     padding: 30px;
