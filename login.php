@@ -39,7 +39,7 @@ require_once 'includes/login_view.inc.php';
                 <div type="select1" class="select-css">
                     <select name="espec" id="select-form">
                     <option value="Doctor">Doctor</option>
-                    <option value="Enfermera">Enfermera</option>
+                    <option value="Enfermera">Enfermero</option>
                 </select>
                 </div>
 
