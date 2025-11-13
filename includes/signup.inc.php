@@ -18,11 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
         $errors = []; //si hay un error en estas condiciones, le asignamos a $errors un valor por cada error
 
         if (is_input_empty($nombre, $apellido, $espec, $pwd, $email)) {
-            $errors["empty_input"] = "Fill in all fields!"; //le asigno un valor llave al array con un mensaje de error.
+            $errors["empty_input"] = "Rellene todos los campos!" . "<br>"; //le asigno un valor llave al array con un mensaje de error.
         }
 
         if (is_email_invalid($email)) {
-            $errors["invalid_email"] = "Invalid email used!"; 
+            $errors["invalid_email"] = "Email invalido usado!" . "<br>"; 
         }
 
         // if (is_username_taken($pdo, $username)) {

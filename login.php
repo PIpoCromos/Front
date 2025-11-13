@@ -33,13 +33,16 @@ require_once 'includes/login_view.inc.php';
         <h2>Crear cuenta</h2>
         <form action="includes/signup.inc.php" method='post'>
             <div class="regisForm">
-                <input type="text" name='nombre' placeholder="nombre del personal">
-                <input type="text" name='apellido' placeholder="apellido del personal">
+                <input type="text" name='nombre' placeholder="Nombre del personal">
+                <input type="text" name='apellido' placeholder="Apellido del personal">
                 <label for="espec">Especialidad del personal</label>
-                <select name="espec" id="select-form">
+                <div type="select1" class="select-css">
+                    <select name="espec" id="select-form">
                     <option value="Doctor">Doctor</option>
                     <option value="Enfermera">Enfermera</option>
                 </select>
+                </div>
+
                 <input type="email" name="email" id="email" placeholder="Ingrese su email">
                 <input type="password" name="pwd" id="password" placeholder="Ingrese su contraseña">
                 <button class="boton">Registrarse</button>
