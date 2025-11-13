@@ -14,7 +14,7 @@ require_once 'includes/login_view.inc.php';
 </head>
 <body>
 
-    <div class="formulario">
+    <!-- <div class="formulario">
         <h2>Iniciar sesion</h2>
         <form action="includes/login.inc.php" method='post'>
             <div class="regisForm">
@@ -23,7 +23,7 @@ require_once 'includes/login_view.inc.php';
                 <button class="boton">Login</button>
             </div>
         </form>
-    </div>
+    </div> -->
 
 <?php 
     check_login_errors();
@@ -31,8 +31,15 @@ require_once 'includes/login_view.inc.php';
 
     <div class="formulario">
         <h2>Crear cuenta</h2>
-        <form action="includes/signup.inc.php">
+        <form action="includes/signup.inc.php" method='post'>
             <div class="regisForm">
+                <input type="text" name='nombre' placeholder="nombre del personal">
+                <input type="text" name='apellido' placeholder="apellido del personal">
+                <label for="espec">Especialidad del personal</label>
+                <select name="espec" id="select-form">
+                    <option value="Doctor">Doctor</option>
+                    <option value="Enfermera">Enfermera</option>
+                </select>
                 <input type="email" name="email" id="email" placeholder="Ingrese su email">
                 <input type="password" name="pwd" id="password" placeholder="Ingrese su contraseña">
                 <button class="boton">Registrarse</button>

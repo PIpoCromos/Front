@@ -1,7 +1,9 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] === 'POST') {
-    $username = $_POST["username"];
+    $nombre = $_POST["nombre"];
+    $apellido = $_POST["apellido"];
+    $espec = $_POST["espec"];
     $pwd = $_POST["pwd"];
     $email = $_POST["email"];
 
@@ -15,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
 
         $errors = []; //si hay un error en estas condiciones, le asignamos a $errors un valor por cada error
 
-        if (is_input_empty($username, $pwd, $email)) {
+        if (is_input_empty($nombre, $apellido, $espec, $pwd, $email)) {
             $errors["empty_input"] = "Fill in all fields!"; //le asigno un valor llave al array con un mensaje de error.
         }
 
@@ -23,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
             $errors["invalid_email"] = "Invalid email used!"; 
         }
 
-        if (is_username_taken($pdo, $username)) {
-            $errors["username_taken"] = "Username already taken!"; 
-        }
+        // if (is_username_taken($pdo, $username)) {
+        //     $errors["username_taken"] = "Username already taken!"; 
+        // }
 
-        if (is_email_registered( $pdo,  $email)) {
+        if (is_email_registered($pdo,  $email)) {
             $errors["email_used"] = "Email already used!"; 
         }
 
@@ -35,11 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
 
         if ($errors) {
             $_SESSION["errors_signup"] = $errors;
-            header("Location: login.php");
+            header("Location: ../login.php");
             die();
         }
 
-        create_user($pdo, $username, $pwd, $email);
+        create_user($pdo, $nombre, $apellido, $espec, $pwd, $email);
 
         header("Location: ../login.php?signup=success");
 
