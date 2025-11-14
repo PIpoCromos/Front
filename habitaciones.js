@@ -1,62 +1,83 @@
-// Estado inicial
-let estadoArduino = "libre";
+// Estado global
+let estadoGlobal = 'libre';
 
-// Función para actualizar estado en Arduino
-function actualizarEstadoArduino(nuevoEstado) {
-    fetch(`serial_handler.php?accion=${nuevoEstado}`)
-        .then(response => response.text())
+// Función para enviar comando a Arduino
+function controlarArduino(estado) {
+    const accion = estado === 'libre' ? 'LIBRE' : 'OCUPADO';
+    
+    console.log('Enviando comando:', accion);
+    
+    fetch(`control_arduino.php?accion=${accion}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
         .then(data => {
-            console.log('Arduino:', data);
+            console.log('Respuesta Arduino:', data);
+            if (data.success) {
+                estadoGlobal = estado;
+                actualizarInterfaz();
+                alert(`Estado cambiado a: ${accion}`);
+            } else {
+                alert('Error: ' + data.message);
+            }
         })
         .catch(error => {
-            console.error('Error comunicándose con Arduino:', error);
+            console.error('Error:', error);
+            alert('Error de conexión: ' + error.message);
         });
 }
 
-// Función para sincronizar estado
-function sincronizarEstado() {
-    fetch('serial_handler.php?accion=estado')
-        .then(response => response.text())
+// Función para leer estado actual
+function leerEstadoArduino() {
+    fetch('leer_estado.php')
+        .then(response => response.json())
         .then(data => {
-            console.log('Estado Arduino:', data);
+            if (data.success) {
+                estadoGlobal = data.estado.toLowerCase();
+                actualizarInterfaz();
+            }
         })
-        .catch(error => {
-            console.error('Error sincronizando estado:', error);
-        });
+        .catch(error => console.error('Error leyendo estado:', error));
 }
 
-// Seleccionamos todos los spans con clase 'libre' o 'ocupado'
+// Actualizar interfaz según estado global
+function actualizarInterfaz() {
+    document.querySelectorAll("span.libre, span.ocupado").forEach(span => {
+        if (estadoGlobal === 'ocupado') {
+            span.className = "ocupado";
+            span.textContent = "Ocupado";
+        } else {
+            span.className = "libre";
+            span.textContent = "Libre";
+        }
+        // Guardar en localStorage
+        localStorage.setItem("span-" + span.id, span.className);
+    });
+}
+
+// Configurar eventos
 document.querySelectorAll("span.libre, span.ocupado").forEach(span => {
-  
-    // Cargar estado guardado en localStorage
+    // Cargar estado guardado
     const saved = localStorage.getItem("span-" + span.id);
     if (saved) {
         span.className = saved;
         span.textContent = saved === "libre" ? "Libre" : "Ocupado";
+        estadoGlobal = saved;
     }
 
-    // Cambiar estado al hacer clic
+    // Al hacer clic
     span.addEventListener("click", () => {
-        if (span.className === "libre") {
-            span.className = "ocupado";
-            span.textContent = "Ocupado";
-            // Enviar comando a Arduino
-            actualizarEstadoArduino('ocupado');
-        } else {
-            span.className = "libre";
-            span.textContent = "Libre";
-            // Enviar comando a Arduino
-            actualizarEstadoArduino('libre');
-        }
-        // Guardar estado en localStorage
-        localStorage.setItem("span-" + span.id, span.className);
+        const nuevoEstado = span.className === "libre" ? "ocupado" : "libre";
+        controlarArduino(nuevoEstado);
     });
 });
 
-// Sincronizar estado al cargar la página
+// Leer estado al cargar y cada 5 segundos
 document.addEventListener('DOMContentLoaded', function() {
-    sincronizarEstado();
-    
-    // Sincronizar cada 30 segundos
-    setInterval(sincronizarEstado, 30000);
+    console.log('Página cargada - iniciando sistema Arduino');
+    leerEstadoArduino();
+    setInterval(leerEstadoArduino, 5000);
 });
