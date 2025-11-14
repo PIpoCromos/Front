@@ -14,7 +14,7 @@ require_once 'includes/login_view.inc.php';
 </head>
 <body>
 
-    <!-- <div class="formulario">
+    <div class="formulario">
         <h2>Iniciar sesion</h2>
         <form action="includes/login.inc.php" method='post'>
             <div class="regisForm">
@@ -23,7 +23,7 @@ require_once 'includes/login_view.inc.php';
                 <button class="boton">Login</button>
             </div>
         </form>
-    </div> -->
+    </div>
 
 <?php 
     check_login_errors();
@@ -39,7 +39,7 @@ require_once 'includes/login_view.inc.php';
                 <div type="select1" class="select-css">
                     <select name="espec" id="select-form">
                     <option value="Doctor">Doctor</option>
-                    <option value="Enfermera">Enfermero</option>
+                    <option value="Enfermero">Enfermero</option>
                 </select>
                 </div>
 

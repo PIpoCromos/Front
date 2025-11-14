@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
 
         create_user($pdo, $nombre, $apellido, $espec, $pwd, $email);
 
-        header("Location: ../login.php?signup=success");
+        header("Location: ../main.html?signup=success");
 
         $pdo = null;
         $stmt = null;
